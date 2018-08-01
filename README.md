@@ -1,2 +1,3 @@
 # .dotfiles
-My dotfiles and installation script
+My dotfiles
+Installation uses GNU stow, e.g. stow vim

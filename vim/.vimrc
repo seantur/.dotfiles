@@ -6,6 +6,7 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 " let Vundle manage Vundle, required
+" Reload with :PluginInstall
 Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'junegunn/fzf'
@@ -14,6 +15,10 @@ Plugin 'flazz/vim-colorschemes'
 Plugin 'godlygeek/csapprox'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'tpope/vim-obsession'
+Plugin 'tpope/vim-fugitive'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'junegunn/goyo.vim'
+Plugin 'itchyny/lightline.vim'
 
 call vundle#end()		"required
 filetype plugin indent on	"required
@@ -37,7 +42,10 @@ noremap <buffer> <silent> $ g$
 set number		    "show line numbers
 set cursorline		"highlight current line
 filetype indent on	"load filtype-specific indent files
+set laststatus=2
+
 set wildmenu		"vidual complete for command menu
+set title
 
 " Searching
 set incsearch   "search as characters are entered
@@ -49,6 +57,11 @@ set foldlevelstart=10   "open most folds by default
 set foldmethod=indent   "fold based on indent levels
 nnoremap <space> za     "space open/closes fold
 
-
 " Buffers
 set hidden
+
+" Git
+let g:gitgutter_reatime = 0
+let g:gitgutter_eager = 0
+
+" Writing
