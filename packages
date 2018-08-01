@@ -10,6 +10,7 @@ screenfetch
 yaourt
 libgnome-keyring
 gThumb
+stow
 
 #Python
 pip

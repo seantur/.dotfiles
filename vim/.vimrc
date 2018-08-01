@@ -65,3 +65,4 @@ let g:gitgutter_reatime = 0
 let g:gitgutter_eager = 0
 
 " Writing
+nnoremap <c-d> :Goyo <ENTER>
