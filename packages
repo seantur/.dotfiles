@@ -9,6 +9,7 @@ imagemagick
 screenfetch
 yaourt
 libgnome-keyring
+gThumb
 
 #Python
 pip
