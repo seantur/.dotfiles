@@ -40,11 +40,11 @@ noremap <buffer> <silent> $ g$
 
 " UI Config
 set number		    "show line numbers
+hi clear LineNr     "changes line number color
 set cursorline		"highlight current line
 filetype indent on	"load filtype-specific indent files
 set laststatus=2
-
-set wildmenu		"vidual complete for command menu
+set wildmenu		"visual complete for command menu
 set title
 
 " Searching
@@ -66,3 +66,7 @@ let g:gitgutter_eager = 0
 
 " Writing
 nnoremap <c-d> :Goyo <ENTER>
+
+" Spell Check
+set spelllang=en
+nnoremap <c-s> :setlocal spell! <ENTER> 

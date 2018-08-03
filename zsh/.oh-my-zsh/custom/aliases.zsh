@@ -1,6 +1,0 @@
-alias ls='ls --color --group-directories-first'
-alias la='ls -A'
-alias ll='ls -Ahl'
-alias pbcopy='xsel --clipboard --input'
-alias pbpaste='xsel --clipboard --output'
-alias c='cd;clear'
