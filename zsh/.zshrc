@@ -2,6 +2,7 @@
 export PATH="$PATH:$HOME/.local/bin:/opt/bin"
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME"/.oh-my-zsh"
+export TERM="xterm-256color"
 
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="gentoo"
@@ -30,5 +31,13 @@ export LANG=en_US.UTF-8
 
 export EDITOR='vim'
 export KEYTIMEOUT=1
+
+vim_fzf() {
+vim "$(fzf)"
+}
+
+setopt nocorrectall;
+setopt correct
+
 
 stty -ixon
