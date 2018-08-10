@@ -1,6 +1,8 @@
 set nocompatible	"be iMproved, required
 filetype off		"required
 
+set encoding=utf-8
+
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -19,6 +21,8 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'junegunn/goyo.vim'
 Plugin 'itchyny/lightline.vim'
+Plugin 'vim-scripts/indentpython.vim'
+Plugin 'nvie/vim-flake8'
 
 call vundle#end()		"required
 filetype plugin indent on	"required
@@ -70,3 +74,14 @@ nnoremap <c-d> :Goyo <ENTER>
 " Spell Check
 set spelllang=en
 nnoremap <c-s> :setlocal spell! <ENTER> 
+
+" Python settings (PEP8)
+au BufNewFile,BufRead *.py
+    \ set tabstop=4 |
+    \ set softtabstop=4 |
+    \ set shiftwidth=4 |
+    \ set textwidth=79 |
+    \ set expandtab |
+    \ set autoindent |
+    \ set fileformat=unix
+
