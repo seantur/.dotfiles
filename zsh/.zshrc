@@ -1,7 +1,13 @@
 # User PATH definition
 export PATH="$PATH:$HOME/.local/bin:/opt/bin"
-# Path to your oh-my-zsh installation.
-export ZSH=$HOME"/.oh-my-zsh"
+
+#Path to your oh-my-zsh installation.
+if [ -d "/usr/share/oh-my-zsh" ]; then
+    export ZSH=/usr/share/oh-my-zsh
+else
+    export ZSH=$HOME"/.oh-my-zsh"
+fi
+
 export TERM="xterm-256color"
 
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
