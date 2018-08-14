@@ -83,5 +83,8 @@ au BufNewFile,BufRead *.py
     \ set textwidth=79 |
     \ set expandtab |
     \ set autoindent |
-    \ set fileformat=unix
+    \ set fileformat=unix |
+    \ set wrap
 
+" Automatically remove all trailing whitespace
+autocmd BufWritePre *.py  %s/\s\+$//e
