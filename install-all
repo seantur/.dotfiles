@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+for dir in */; do
+    stow $dir
+    echo "Stowing "$dir
+done 
