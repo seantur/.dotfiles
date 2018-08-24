@@ -45,5 +45,8 @@ vim "$(fzf)"
 setopt nocorrectall;
 setopt correct
 
+# Wal Colors
+(cat ~/.cache/wal/sequences &)
 
 stty -ixon
+autoload -U +X bashcompinit && bashcompinit

@@ -14,7 +14,6 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'junegunn/fzf'
 Plugin 'scrooloose/nerdtree'
 Plugin 'flazz/vim-colorschemes'
-Plugin 'godlygeek/csapprox'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'tpope/vim-obsession'
 Plugin 'tpope/vim-fugitive'
@@ -23,6 +22,7 @@ Plugin 'junegunn/goyo.vim'
 Plugin 'itchyny/lightline.vim'
 Plugin 'vim-scripts/indentpython.vim'
 Plugin 'nvie/vim-flake8'
+Plugin 'dylanaraps/wal.vim'
 
 call vundle#end()		"required
 filetype plugin indent on	"required
@@ -30,8 +30,8 @@ filetype plugin indent on	"required
 " Colors
 syntax enable
 set background=dark
-set t_Co=256			" make sure using 256 bit color
-colorscheme 0x7A69_dark
+set t_Co=16			" make sure using 256 bit color
+colorscheme wal
 
 " Spaces & Tabs
 set tabstop=4		"number of visual spaces per TAB
@@ -46,6 +46,7 @@ noremap <buffer> <silent> $ g$
 set number		    "show line numbers
 hi clear LineNr     "changes line number color
 set cursorline		"highlight current line
+hi CursorLine cterm=NONE, ctermbg=NONE ctermfg=NONE
 filetype indent on	"load filtype-specific indent files
 set laststatus=2
 set wildmenu		"visual complete for command menu
@@ -88,3 +89,6 @@ au BufNewFile,BufRead *.py
 
 " Automatically remove all trailing whitespace
 autocmd BufWritePre *.py  %s/\s\+$//e
+
+let g:ycm_server_python_interpreter = 'python2'
+let g:ycm_python_binary_path = 'python'
