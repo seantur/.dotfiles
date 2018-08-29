@@ -51,6 +51,7 @@ filetype indent on	"load filtype-specific indent files
 set laststatus=2
 set wildmenu		"visual complete for command menu
 set title
+set showmatch
 
 " Searching
 set incsearch   "search as characters are entered
