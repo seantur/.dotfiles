@@ -25,7 +25,8 @@ COMPLETION_WAITING_DOTS="true"
 
 # Plugins
 plugins=(
-  git
+  git,
+  vi-mode
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -47,6 +48,9 @@ setopt correct
 
 # Wal Colors
 (cat ~/.cache/wal/sequences &)
+
+# Source local ZSH configs in .zsh.local
+source ~/.zshrc.local
 
 stty -ixon
 autoload -U +X bashcompinit && bashcompinit
