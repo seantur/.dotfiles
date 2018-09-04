@@ -23,9 +23,15 @@ Plugin 'itchyny/lightline.vim'
 Plugin 'vim-scripts/indentpython.vim'
 Plugin 'nvie/vim-flake8'
 Plugin 'dylanaraps/wal.vim'
+Plugin 'benmills/vimux'
 
 call vundle#end()		"required
 filetype plugin indent on	"required
+
+" Lightline config
+set laststatus=2
+set noshowmode
+let g:lightline = { 'colorscheme': 'wal' }
 
 " Colors
 syntax enable
@@ -91,5 +97,7 @@ au BufNewFile,BufRead *.py
 " Automatically remove all trailing whitespace
 autocmd BufWritePre *.py  %s/\s\+$//e
 
-let g:ycm_server_python_interpreter = 'python2'
-let g:ycm_python_binary_path = 'python'
+" Prompt for a command to run  (Vimux")
+map vp :VimuxPromptCommand<CR>
+map vl :VimuxRunLastCommand<CR>
+let g:VimuxUseNearest = 0
