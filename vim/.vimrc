@@ -98,6 +98,7 @@ au BufNewFile,BufRead *.py
 autocmd BufWritePre *.py  %s/\s\+$//e
 
 " Prompt for a command to run  (Vimux")
-map vp :VimuxPromptCommand<CR>
-map vl :VimuxRunLastCommand<CR>
+map vp :w<CR>:VimuxPromptCommand<CR>
+map vl :w<CR>:VimuxRunLastCommand<CR>
+map vq :VimuxCloseRunner<CR>
 let g:VimuxUseNearest = 0
