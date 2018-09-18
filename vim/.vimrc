@@ -101,4 +101,5 @@ autocmd BufWritePre *.py  %s/\s\+$//e
 map vp :w<CR>:VimuxPromptCommand<CR>
 map vl :w<CR>:VimuxRunLastCommand<CR>
 map vq :VimuxCloseRunner<CR>
-let g:VimuxUseNearest = 0
+map vt :VimuxRunCommand('make test')<CR>
+let g:VimuxUseNearest = 1
