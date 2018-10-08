@@ -21,9 +21,11 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'junegunn/goyo.vim'
 Plugin 'itchyny/lightline.vim'
 Plugin 'vim-scripts/indentpython.vim'
-Plugin 'nvie/vim-flake8'
 Plugin 'dylanaraps/wal.vim'
 Plugin 'benmills/vimux'
+Plugin 'tpope/vim-repeat'
+Plugin 'W0rp/ale'
+Plugin 'maximbaz/lightline-ale'
 
 call vundle#end()		"required
 filetype plugin indent on	"required
@@ -51,8 +53,8 @@ noremap <buffer> <silent> $ g$
 " UI Config
 set number		    "show line numbers
 hi clear LineNr     "changes line number color
-set cursorline		"highlight current line
-hi CursorLine cterm=NONE, ctermbg=NONE ctermfg=NONE
+" set cursorline		"highlight current line
+" hi CursorLine cterm=NONE, ctermbg=NONE ctermfg=NONE
 filetype indent on	"load filtype-specific indent files
 set laststatus=2
 set wildmenu		"visual complete for command menu
@@ -103,3 +105,34 @@ map vl :w<CR>:VimuxRunLastCommand<CR>
 map vq :VimuxCloseRunner<CR>
 map vt :VimuxRunCommand('make test')<CR>
 let g:VimuxUseNearest = 1
+
+" ALE
+let g:ale_echo_msg_format = '[%linter%] %s'
+highlight clear ALEWarning
+highlight clear ALEError
+highlight ALEErrorSign ctermbg=red
+highlight ALEWarningSign ctermbg=gray
+
+" ALE / Lightline
+let g:lightline = {}
+let g:lightline.component_expand = {
+    \ 'linter_checking': 'lightline#ale#checking',
+    \ 'linter_warnings': 'lightline#ale#warnings',
+    \ 'linter_errors': 'lightline#ale#errors',
+    \ 'linter_ok': 'lightline#ale#ok',
+    \ }
+let g:lightline.component_type = {
+    \ 'linter_checking': 'left',
+    \ 'linter_warnings': 'warning',
+    \ 'linter_errors': 'error',
+    \ 'linter_ok': 'left',
+    \ }
+let g:lightline.active = {
+    \ 'right': [ [ 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_ok' ],
+    \            [ 'lineinfo' ],
+    \            [ 'percent' ],
+    \            [ 'fileformat', 'fileencoding', 'filetype'] ] }
+let g:lightline#ale#indicator_checking = "\uf110 "
+let g:lightline#ale#indicator_warnings = "\uf071 "
+let g:lightline#ale#indicator_errors = "\uf05e "
+
