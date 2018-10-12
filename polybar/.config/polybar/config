@@ -1,0 +1,114 @@
+[colors]
+background = ${xrdb:color0:#222}
+foreground = ${xrdb:color7:#222}
+invisible = #0000
+transparent = #99000000
+warning = #FF0000
+spotify = #1DB954
+white = #FFFFFF
+underline = ${xrdb:color4:#222}
+
+[settings]
+format-background = ${colors.background}
+format-foreground = ${colors.foreground}
+format-padding = 1
+
+[bar/mybar]
+monitor = "DP-1-2"
+monitor-strict = false
+bottom = false
+fixed-center = true
+radius = 0.0
+line-size = 1
+line-color = #f00
+padding = 7
+separator = "  "
+background = ${colors.background}
+foreground = ${colors.foreground}
+underline-size = 4
+
+modules-left = memory temperature cpu wired-network network-speeds
+modules-center = kernel package-update 
+modules-right = backup spotify volume date 
+
+font-0 = InConsolata-Regular:size=12;2
+font-1 = FontAwesome:size=12;0
+
+
+
+
+# Modules
+
+[module/wired-network]
+type = internal/network
+interface = wlp2s0
+interval = 3.0
+label-connected = IP %local_ip%
+
+[module/network-speeds]
+type = custom/script
+exec = ~/.config/polybar/getspeed.sh
+interval = 300
+
+[module/date]
+type = internal/date
+interval = 1.0
+date = %Y-%m-%d%
+time = %H:%M
+label = %date% %time%
+format-foreground = ${colors.white}
+
+[module/volume]
+type = custom/script
+exec = ~/.config/polybar/getvolume.sh
+click-left = pavucontrol
+click-right = amixer set Master toggle
+scroll-up = pactl set-sink-volume 0 +5%
+scroll-down = pactl set-sink-volume 0 -5%
+interval=1
+
+[module/memory]
+type = internal/memory
+interval = 3
+label = RAM %gb_used%
+
+[module/cpu]
+type = internal/cpu
+format = <label> 
+label = CPU %percentage%%
+
+[module/temperature]
+type = internal/temperature
+thermal-zone = 1
+warn-temperature = 70
+format = <label>
+format-warn = <label-warn>
+label = TEMP %temperature-c%
+label-warn = TEMP %temperature-c%
+label-warn-foreground = ${colors.warning}
+
+[module/spotify]
+type = custom/script
+interval = 4
+format = <label>
+exec = ~/.config/polybar/getspotifyinfo.sh
+format-underline = ${colors.spotify} 
+click-left = spotify-control toggle
+scroll-up = spotify-control next
+scroll-down = spotify-control prev
+
+[module/package-update]
+type = custom/script
+exec = ~/.config/polybar/getupdates.sh
+interval = 300
+label = PKG %output%
+
+[module/kernel]
+type = custom/script
+exec = uname -r
+interval = 3600
+
+[module/backup]
+type = custom/script
+exec = ~/.config/polybar/getbackuptime.sh
+interval = 30
