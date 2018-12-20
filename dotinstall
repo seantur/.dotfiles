@@ -1,0 +1,50 @@
+#!/usr/bin/env bash
+
+if [ "$#" = 0 ]; then
+    for dir in */; do
+        stow $dir
+        echo "Stowing "$dir
+    done 
+    exit
+else
+    while getopts "ptvz" OPTION
+    do
+        case $OPTION in
+                p) POLYBAR=true
+                   ;;
+                t) TMUX=true
+                   ;;
+                v) VIM=true
+                   ;;
+                z) ZSH=true
+                   ;;
+                \?) echo "Usage: ./dotinstall -ptvz"
+                    exit
+                    ;;
+                *) echo "Usage: ./dotinstall -pvtz"
+                   exit
+                   ;;
+        esac
+    done
+
+    if [ "$POLYBAR" = true ]; then
+        stow polybar
+        echo "Stowing polybar"
+    fi
+
+    if [ "$TMUX" = true ]; then
+        stow tmux
+        echo "Stowing tmux"
+    fi    
+
+    if [ "$VIM" = true ]; then
+        stow vim
+        echo "Stowing vim"
+    fi
+
+    if [ "$ZSH" = true ]; then
+        stow zsh
+        echo "Stowing zsh"
+    fi
+fi
+
