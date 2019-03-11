@@ -14,7 +14,7 @@ format-foreground = ${colors.foreground}
 format-padding = 1
 
 [bar/mybar]
-monitor = "DP1-2"
+#monitor = "DP1-2"
 monitor-strict = false
 bottom = false
 fixed-center = true

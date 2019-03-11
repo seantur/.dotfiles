@@ -26,6 +26,7 @@ Plugin 'benmills/vimux'
 Plugin 'tpope/vim-repeat'
 Plugin 'W0rp/ale'
 Plugin 'maximbaz/lightline-ale'
+Plugin 'ntpeters/vim-better-whitespace'
 
 call vundle#end()		"required
 filetype plugin indent on	"required

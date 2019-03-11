@@ -1,13 +1,15 @@
 #!/usr/bin/env bash
 
+# Script to stow specifc config. User with no parameters to stow everything
+
 if [ "$#" = 0 ]; then
     for dir in */; do
         stow $dir
         echo "Stowing "$dir
-    done 
+    done
     exit
 else
-    while getopts "ptvz" OPTION
+    while getopts "ptvza" OPTION
     do
         case $OPTION in
                 p) POLYBAR=true
@@ -18,10 +20,12 @@ else
                    ;;
                 z) ZSH=true
                    ;;
-                \?) echo "Usage: ./dotinstall -ptvz"
+                a) ALACRITTY=true
+                   ;;
+                \?) echo "Usage: ./dotinstall -ptvza"
                     exit
                     ;;
-                *) echo "Usage: ./dotinstall -pvtz"
+                *) echo "Usage: ./dotinstall -pvtza"
                    exit
                    ;;
         esac
@@ -35,7 +39,7 @@ else
     if [ "$TMUX" = true ]; then
         stow tmux
         echo "Stowing tmux"
-    fi    
+    fi
 
     if [ "$VIM" = true ]; then
         stow vim
@@ -46,5 +50,11 @@ else
         stow zsh
         echo "Stowing zsh"
     fi
+
+    if [ "$ALACRITTY" = true ]; then
+        stow alacritty
+        echo "Stowing alacritty"
+    fi
+
 fi
 
