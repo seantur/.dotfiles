@@ -14,7 +14,7 @@ format-foreground = ${colors.foreground}
 format-padding = 1
 
 [bar/mybar]
-#monitor = "DP1-2"
+monitor = ${env:MONITOR:}
 monitor-strict = false
 bottom = false
 fixed-center = true
@@ -28,10 +28,11 @@ foreground = ${colors.foreground}
 underline-size = 4
 
 modules-left = memory temperature cpu wired-network network-speeds
-modules-center = kernel package-update 
-modules-right = backup spotify volume date 
+modules-center = kernel package-update
+#modules-right = backup spotify volume date
+modules-right = backup spotify volume date
 
-font-0 = InConsolata-Regular:size=12;2
+font-0 = InConsolata-Regular:sie=12;2
 font-1 = FontAwesome:size=12;0
 
 
@@ -74,7 +75,7 @@ label = RAM %gb_used%
 
 [module/cpu]
 type = internal/cpu
-format = <label> 
+format = <label>
 label = CPU %percentage%%
 
 [module/temperature]
