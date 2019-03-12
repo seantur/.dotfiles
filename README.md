@@ -1,7 +1,7 @@
 # My .dotfiles
 Installation uses GNU stow, e.g. stow vim
 
-Use `./dotinstall -pvtza` to pick & choose what to stow
+Use `./dotinstall` to stow everything
 
 # Currently Supporting
 + polybar
@@ -9,3 +9,4 @@ Use `./dotinstall -pvtza` to pick & choose what to stow
 + tmux
 + zsh
 + alacritty
++ i3-gaps

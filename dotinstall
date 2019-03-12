@@ -1,60 +1,16 @@
 #!/usr/bin/env bash
 
-# Script to stow specifc config. User with no parameters to stow everything
+# Script to stow all configs
 
-if [ "$#" = 0 ]; then
-    for dir in */; do
-        stow $dir
-        echo "Stowing "$dir
-    done
-    exit
-else
-    while getopts "ptvza" OPTION
-    do
-        case $OPTION in
-                p) POLYBAR=true
-                   ;;
-                t) TMUX=true
-                   ;;
-                v) VIM=true
-                   ;;
-                z) ZSH=true
-                   ;;
-                a) ALACRITTY=true
-                   ;;
-                \?) echo "Usage: ./dotinstall -ptvza"
-                    exit
-                    ;;
-                *) echo "Usage: ./dotinstall -pvtza"
-                   exit
-                   ;;
-        esac
-    done
+declare -a CONFIGS=("tmux"
+                    "vim"
+                    "polybar"
+                    "alacritty"
+                    "i3"
+                    "zsh")
 
-    if [ "$POLYBAR" = true ]; then
-        stow polybar
-        echo "Stowing polybar"
-    fi
-
-    if [ "$TMUX" = true ]; then
-        stow tmux
-        echo "Stowing tmux"
-    fi
-
-    if [ "$VIM" = true ]; then
-        stow vim
-        echo "Stowing vim"
-    fi
-
-    if [ "$ZSH" = true ]; then
-        stow zsh
-        echo "Stowing zsh"
-    fi
-
-    if [ "$ALACRITTY" = true ]; then
-        stow alacritty
-        echo "Stowing alacritty"
-    fi
-
-fi
-
+for config in "${CONFIGS[@]}"; do
+    stow $config
+    echo "Stowing "$config
+done
+exit
