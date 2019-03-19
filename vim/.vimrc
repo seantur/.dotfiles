@@ -27,6 +27,7 @@ Plugin 'tpope/vim-repeat'
 Plugin 'W0rp/ale'
 Plugin 'maximbaz/lightline-ale'
 Plugin 'ntpeters/vim-better-whitespace'
+Plugin 'Vimjas/vim-python-pep8-indent'
 
 call vundle#end()		"required
 filetype plugin indent on	"required
