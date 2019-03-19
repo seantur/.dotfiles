@@ -5,11 +5,15 @@ now=$(date '+%s')
 delta=$(("$now" - "$backuptime"))
 
 if [ "$delta" -lt 60 ]; then
-    echo "$delta" seconds since last backup
+    seconds="$delta"
+    echo "$seconds" sec [slb]
 elif [ "$delta" -lt 3600 ]; then
-        echo "$(( "$delta" / 60))"."$(( "$delta" % 60 ))" minutes since last backup
-elif [ "$delta" -lt 86400 ]; then 
-    echo "$(("$delta" / 3600))"."$(( "$delta" % 3600 ))" hours since last backup
+    minutes=$(printf "%0.2f" $(echo "$delta / 60" | bc -l))
+    echo "$minutes" min [slb]
+elif [ "$delta" -lt 86400 ]; then
+    hours=$(printf "%0.2f" $(echo "$delta / 3600" | bc -l))
+    echo "$hours" hrs [slb]
 else
-    echo "$(("$delta" / 86400 ))"."$(( "$delta" % 3600 ))" days since last backup
+    hours=$(printf "%0.2f" $(echo "$delta / 86400" | bc -l))
+    echo "$days" days [slb]
 fi

@@ -6,6 +6,7 @@ transparent = #99000000
 warning = #FF0000
 spotify = #1DB954
 white = #FFFFFF
+black = #000000
 underline = ${xrdb:color4:#222}
 
 [settings]
@@ -21,24 +22,42 @@ fixed-center = true
 radius = 0.0
 line-size = 1
 line-color = #f00
-padding = 7
+padding = 2
 separator = "  "
 background = ${colors.background}
 foreground = ${colors.foreground}
 underline-size = 4
 
-modules-left = memory temperature cpu wired-network network-speeds
+modules-left = i3 memory temperature cpu wired-network network-speeds
 modules-center = kernel package-update
-#modules-right = backup spotify volume date
 modules-right = backup spotify volume date
 
 font-0 = InConsolata-Regular:sie=12;2
-font-1 = FontAwesome:size=12;0
+font-1 = FontAwesome5Free:size=12;0
 
 
 
 
 # Modules
+
+[module/i3]
+type = internal/i3
+
+label-mode = %mode%
+
+label-focused = %index%
+label-focused-foreground = ${colors.black}
+label-focused-background = ${colors.underline}
+
+label-unfocused = %index%
+label-unfocused-foreground = ${colors.white}
+
+label-visible = %index%
+
+label-urgent = %index%
+label-urgent-foreground = ${colors.warning}
+
+label-separator = |
 
 [module/wired-network]
 type = internal/network
