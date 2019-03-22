@@ -6,14 +6,14 @@ delta=$(("$now" - "$backuptime"))
 
 if [ "$delta" -lt 60 ]; then
     seconds="$delta"
-    echo "$seconds" sec [slb]
+    echo ["$seconds" sec]
 elif [ "$delta" -lt 3600 ]; then
     minutes=$(printf "%0.2f" $(echo "$delta / 60" | bc -l))
-    echo "$minutes" min [slb]
+    echo ["$minutes" min]
 elif [ "$delta" -lt 86400 ]; then
     hours=$(printf "%0.2f" $(echo "$delta / 3600" | bc -l))
-    echo "$hours" hrs [slb]
+    echo ["$hours" hrs]
 else
     hours=$(printf "%0.2f" $(echo "$delta / 86400" | bc -l))
-    echo "$days" days [slb]
+    echo ["$days" days]
 fi
