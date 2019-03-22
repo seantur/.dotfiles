@@ -181,7 +181,7 @@ client.background   $bg
 
 
 # Gaps
-for_window [class="^.*"] border pixel 5
+for_window [class="^.*"] border pixel 0
 
 gaps inner 20
 gaps outer 20
@@ -207,7 +207,6 @@ bindsym F7 exec playerctl play-pause
 bindsym F8 exec playerctl stop
 
 # Startup programs
-exec --no-startup-id /home/sean/.config/polybar/launch_polybar.sh
 exec wal -i /home/sean/Dropbox/backgrounds
-exec_always /home/sean/.config/polybar/launch_polybar.sh
+exec always autorandr -c #autorandr should also launch polybar
 exec --no-startup-id dropbox-cli start
