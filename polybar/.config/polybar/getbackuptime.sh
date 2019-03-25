@@ -14,6 +14,6 @@ elif [ "$delta" -lt 86400 ]; then
     hours=$(printf "%0.2f" $(echo "$delta / 3600" | bc -l))
     echo ["$hours" hrs]
 else
-    hours=$(printf "%0.2f" $(echo "$delta / 86400" | bc -l))
+    days=$(printf "%0.2f" $(echo "$delta / 86400" | bc -l))
     echo ["$days" days]
 fi

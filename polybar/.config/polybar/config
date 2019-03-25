@@ -163,9 +163,9 @@ type = internal/battery
 
 full-at = 99
 
-label-full = [⚡ charged]
-label-charging = [⚡ %percentage%%]
-label-discharging = [⚡ %percentage%%]
+label-full = ⚡
+label-charging = ⚡ [%percentage%%]
+label-discharging = ⚡ [%percentage%%]
 
 battery = BAT0
 adapter = AC
