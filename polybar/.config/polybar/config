@@ -28,7 +28,7 @@ background = ${colors.background}
 foreground = ${colors.foreground}
 underline-size = 4
 
-modules-left = i3 memory temperature cpu wired-network
+modules-left = i3 memory temperature cpu filesystem
 modules-center = kernel package-update
 modules-right = backup spotify volume battery date
 
@@ -169,3 +169,12 @@ label-discharging = ⚡ [%percentage%%]
 
 battery = BAT0
 adapter = AC
+
+[module/filesystem]
+type = internal/fs
+
+mount-0 = /
+
+interval = 10
+fixed-values = true
+label-mounted = [%mountpoint% %percentage_free%% of %total%]

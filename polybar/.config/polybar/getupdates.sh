@@ -4,11 +4,11 @@
 NUM=$(checkupdates | wc -l)
 
 if [[ "$NUM" == 0 ]]; then
-    echo -e "No updates!"
+    echo -e "∅"
 elif [[ "$NUM" == 1 ]]; then
     UPDATE=$(checkupdates)
     read -r PACKAGE <<< "$UPDATE"
-    echo -e "1 update! ($PACKAGE)"
+    echo -e "1 ($PACKAGE)"
 else
-    echo -e "$NUM updates!"
+    echo -e "$NUM"
 fi
