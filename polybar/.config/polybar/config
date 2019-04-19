@@ -13,6 +13,7 @@ underline = ${xrdb:color4:#222}
 format-background = ${colors.background}
 format-foreground = ${colors.foreground}
 format-padding = 1
+screenchange-reload = true
 
 [bar/mybar]
 monitor = ${env:MONITOR:}
@@ -46,7 +47,7 @@ radius = 0.0
 line-size = 1
 line-color = #f00
 padding = 2
-separator = " "
+separator = "  "
 background = ${colors.background}
 foreground = ${colors.foreground}
 underline-size = 4
@@ -97,9 +98,9 @@ interval = 300
 [module/date]
 type = internal/date
 interval = 1.0
-date = %Y-%m-%d%
-time = %H:%M
-label = %date% %time%
+date = %m-%d-%Y
+time = %H:%M:%S
+label = %date%  %time%
 format-foreground = ${colors.white}
 
 [module/volume]
@@ -144,7 +145,7 @@ scroll-down = playerctl previous
 [module/package-update]
 type = custom/script
 exec = ~/.config/polybar/getupdates.sh
-interval = 300
+interval = 60
 label = PKG %output%
 
 [module/kernel]
@@ -164,8 +165,8 @@ type = internal/battery
 full-at = 99
 
 label-full = ⚡
-label-charging = ⚡ [%percentage%%]
-label-discharging = ⚡ [%percentage%%]
+label-charging = ⚡ [%percentage%%++]
+label-discharging = ⚡ [%percentage%%--]
 
 battery = BAT0
 adapter = AC

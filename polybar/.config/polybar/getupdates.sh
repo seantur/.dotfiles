@@ -8,7 +8,7 @@ if [[ "$NUM" == 0 ]]; then
 elif [[ "$NUM" == 1 ]]; then
     UPDATE=$(checkupdates)
     read -r PACKAGE <<< "$UPDATE"
-    echo -e "1 ($PACKAGE)"
+    echo -e " 1 ($PACKAGE)"
 else
-    echo -e "$NUM"
+    echo -e " $NUM"
 fi

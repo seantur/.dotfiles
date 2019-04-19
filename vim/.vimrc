@@ -11,16 +11,13 @@ call vundle#begin()
 " Reload with :PluginInstall
 Plugin 'VundleVim/Vundle.vim'
 
-Plugin 'junegunn/fzf'
 Plugin 'scrooloose/nerdtree'
-Plugin 'flazz/vim-colorschemes'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'tpope/vim-obsession'
 Plugin 'tpope/vim-fugitive'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'junegunn/goyo.vim'
 Plugin 'itchyny/lightline.vim'
-Plugin 'vim-scripts/indentpython.vim'
 Plugin 'dylanaraps/wal.vim'
 Plugin 'benmills/vimux'
 Plugin 'tpope/vim-repeat'
@@ -28,6 +25,8 @@ Plugin 'W0rp/ale'
 Plugin 'maximbaz/lightline-ale'
 Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'Vimjas/vim-python-pep8-indent'
+Plugin 'sheerun/vim-polyglot'
+Plugin 'yegappan/mru'
 
 call vundle#end()		"required
 filetype plugin indent on	"required
@@ -53,7 +52,7 @@ noremap <buffer> <silent> 0 g0
 noremap <buffer> <silent> $ g$
 
 " UI Config
-set number		    "show line numbers
+set relativenumber		    "show line numbers
 hi clear LineNr     "changes line number color
 " set cursorline		"highlight current line
 " hi CursorLine cterm=NONE, ctermbg=NONE ctermfg=NONE
@@ -66,6 +65,8 @@ set showmatch
 " Searching
 set incsearch   "search as characters are entered
 set hlsearch    "highlight matches
+set smartcase   "ignore case in a search until there is capitaliation
+set gdefault    "s///g is implied
 
 " Folding
 set foldenable          "enable folding
@@ -79,9 +80,6 @@ set hidden
 " Git
 let g:gitgutter_reatime = 0
 let g:gitgutter_eager = 0
-
-" Writing
-nnoremap <c-d> :Goyo <ENTER>
 
 " Spell Check
 set spelllang=en
@@ -106,6 +104,7 @@ map vp :w<CR>:VimuxPromptCommand<CR>
 map vl :w<CR>:VimuxRunLastCommand<CR>
 map vq :VimuxCloseRunner<CR>
 map vt :VimuxRunCommand('make test')<CR>
+map pt :VimuxRunCommand('poetry run inv test')<CR>
 let g:VimuxUseNearest = 1
 
 " ALE
@@ -139,3 +138,22 @@ let g:lightline#ale#indicator_warnings = "\uf071 "
 let g:lightline#ale#indicator_errors = "\uf05e "
 
 let g:loaded_matchparen=1
+
+" Remaps
+nnoremap <silent> <c-m> :MRU<CR>
+nnoremap <silent> <c-n> :nohl<CR>
+
+"global replace
+nnoremap <c-r> *N:%s/<C-R>///c<left><left>
+
+"jj to exit insert mode
+inoremap jj <Esc>
+
+"Y yanks to EOL
+nnoremap Y y$
+
+"Screw arrow keys
+map <up> <nop>
+map <down> <nop>
+map <left> <nop>
+map <right> <nop>

@@ -196,6 +196,7 @@ bindsym F11 exec autorandr -c
 bindsym $mod+Mod1+s exec --no-startup-id /usr/bin/slack
 bindsym $mod+Shift+w exec --no-startup-id wal -i /home/sean/Dropbox/backgrounds
 bindsym $mod+Print exec --no-startup-id xfce4-screenshooter
+bindym F10 exec alacritty ranger
 
 # Audio
 bindsym F2 exec --no-startup-id pactl set-sink-volume 0 -5%
@@ -208,9 +209,18 @@ bindsym F8 exec playerctl stop
 
 # Startup programs
 exec wal -i /home/sean/Dropbox/backgrounds
-exec always autorandr -c #autorandr should also launch polybar
 exec --no-startup-id dropbox-cli start
 
 # Workspace assignments
 for_window [class="Spotify"] move container to workspace 2
 assign [class="Slack"] 3
+
+bindsym $mod+m move workspace to output right
+
+workspace 1 output DP1-2
+workspace 2 output eDP1
+workspace 3 output eDP1
+workspace 4 output eDP1
+
+# Activate smart borders
+smart_borders no_gaps
