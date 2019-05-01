@@ -26,7 +26,6 @@ Plugin 'maximbaz/lightline-ale'
 Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'Vimjas/vim-python-pep8-indent'
 Plugin 'sheerun/vim-polyglot'
-Plugin 'yegappan/mru'
 
 call vundle#end()		"required
 filetype plugin indent on	"required
@@ -90,7 +89,7 @@ au BufNewFile,BufRead *.py
     \ set tabstop=4 |
     \ set softtabstop=4 |
     \ set shiftwidth=4 |
-    \ set textwidth=79 |
+    \ set textwidth=99 |
     \ set expandtab |
     \ set autoindent |
     \ set fileformat=unix |
@@ -140,8 +139,9 @@ let g:lightline#ale#indicator_errors = "\uf05e "
 let g:loaded_matchparen=1
 
 " Remaps
-nnoremap <silent> <c-m> :MRU<CR>
 nnoremap <silent> <c-n> :nohl<CR>
+nmap <S-Enter> O<Esc>
+nmap <CR> o<Esc>
 
 "global replace
 nnoremap <c-r> *N:%s/<C-R>///c<left><left>

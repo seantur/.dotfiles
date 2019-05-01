@@ -215,6 +215,8 @@ exec --no-startup-id dropbox-cli start
 for_window [class="Spotify"] move container to workspace 2
 assign [class="Slack"] 3
 
+for_window [class="feh"] floating enable
+
 bindsym $mod+m move workspace to output right
 
 workspace 1 output DP1-2
