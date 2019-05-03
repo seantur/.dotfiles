@@ -3,6 +3,8 @@ filetype off		"required
 
 set encoding=utf-8
 
+let mapleader = ","
+
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -26,6 +28,9 @@ Plugin 'maximbaz/lightline-ale'
 Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'Vimjas/vim-python-pep8-indent'
 Plugin 'sheerun/vim-polyglot'
+Plugin 'EinfachToll/DidYouMean'
+Plugin 'junegunn/fzf', {'dir':'~/.fzf','do':'/.install --all'}
+Plugin 'junegunn/fzf.vim'
 
 call vundle#end()		"required
 filetype plugin indent on	"required
@@ -52,9 +57,8 @@ noremap <buffer> <silent> $ g$
 
 " UI Config
 set relativenumber		    "show line numbers
-hi clear LineNr     "changes line number color
-" set cursorline		"highlight current line
-" hi CursorLine cterm=NONE, ctermbg=NONE ctermfg=NONE
+
+hi Search cterm=NONE, ctermbg=WHITE ctermfg=BLACK
 filetype indent on	"load filtype-specific indent files
 set laststatus=2
 set wildmenu		"visual complete for command menu
@@ -143,6 +147,13 @@ nnoremap <silent> <c-n> :nohl<CR>
 nmap <S-Enter> O<Esc>
 nmap <CR> o<Esc>
 
+nmap <Leader>w :w<CR>
+nmap <Leader>z :wq<CR>
+nmap <Leader>q :q!<CR>
+
+"redo
+nnoremap U <C-R>
+
 "global replace
 nnoremap <c-r> *N:%s/<C-R>///c<left><left>
 
@@ -157,3 +168,8 @@ map <up> <nop>
 map <down> <nop>
 map <left> <nop>
 map <right> <nop>
+
+"FZF/Rg
+nmap <Leader>f :GFiles<CR>
+nmap <Leader>F :Files<CR>
+nmap <Leader>g :Rg<CR>
