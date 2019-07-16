@@ -31,6 +31,9 @@ Plugin 'sheerun/vim-polyglot'
 Plugin 'EinfachToll/DidYouMean'
 Plugin 'junegunn/fzf', {'dir':'~/.fzf','do':'/.install --all'}
 Plugin 'junegunn/fzf.vim'
+Plugin 'jceb/vim-orgmode'
+Plugin 'tpope/vim-surround'
+Plugin 'terryma/vim-multiple-cursors'
 
 call vundle#end()		"required
 filetype plugin indent on	"required
@@ -86,7 +89,7 @@ let g:gitgutter_eager = 0
 
 " Spell Check
 set spelllang=en
-nnoremap <c-s> :setlocal spell! <ENTER> 
+nnoremap <c-s> :setlocal spell! <ENTER>
 
 " Python settings (PEP8)
 au BufNewFile,BufRead *.py
