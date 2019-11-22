@@ -6,6 +6,8 @@ Use `./dotinstall` to stow everything
 # Currently Supporting
 + polybar
 + vim
++ nvim
++ git
 + tmux
 + zsh
 + alacritty
