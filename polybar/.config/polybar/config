@@ -15,53 +15,52 @@ format-foreground = ${colors.foreground}
 format-padding = 1
 screenchange-reload = true
 
-[bar/mybar]
-monitor = ${env:MONITOR:}
-monitor-strict = false
+[bar/master]
 bottom = false
 fixed-center = true
+underline-size = 4
 radius = 0.0
 line-size = 1
 line-color = #f00
 padding = 2
 separator = "  "
+
 background = ${colors.background}
 foreground = ${colors.foreground}
-underline-size = 4
-
-modules-left = i3 memory temperature cpu filesystem
-modules-center = kernel package-update
-modules-right = backup spotify volume battery date
 
 font-0 = Noto Sans Mono:style=Regular
 font-1 = FontAwesome5Free:size=12
 font-2 = InConsolata-Regular:sie=Regular
 font-3 = font\-logos:style=logos
 font-4 = Symbola:style=Regular
+font-5 = FontAwesome5Free:style=Solid:size=10,4
+font-6 = FontAwesome5Brands:style=Regular:size=10,4
 
-[bar/tiny]
+[bar/main]
+inherit = bar/master
+monitor = DP1-2
 monitor-strict = false
-bottom = false
-fixed-center = true
-radius = 0.0
-line-size = 1
-line-color = #f00
-padding = 2
-separator = "  "
-background = ${colors.background}
-foreground = ${colors.foreground}
-underline-size = 4
+
+modules-left = i3 memory temperature cpu filesystem
+modules-center = kernel package-update
+modules-right = backup volume wgstatus battery date
+
+[bar/vertical]
+inherit = bar/master
+monitor = DP2-1
+monitor-strict = true
+
+modules-left = spotify
+modules-right = date
+
+[bar/laptop]
+inherit = bar/master
+monitor = eDP1
+monitor-strict = true
 
 modules-left = i3 memory cpu
 modules-center = kernel
 modules-right = backup battery date
-
-font-0 = Noto-Sans-Mono-Medium:size=12;0
-font-1 = FontAwesome5Free:size=12;0
-font-2 = InConsolata-Regular:sie=12;2
-font-3 = font\-logos:style=logos
-font-4 = Symbola:style=Regular
-
 
 # Modules
 
@@ -178,4 +177,10 @@ mount-0 = /
 
 interval = 10
 fixed-values = true
-label-mounted = [%mountpoint% %percentage_free%% of %total%]
+label-mounted = [%mountpoint% %percentage_used%% of %total%]
+
+[module/wgstatus]
+type = custom/script
+exec = ~/.config/polybar/getwgstatus.sh
+label-active-font = 5
+interval = 5

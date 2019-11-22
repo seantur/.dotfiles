@@ -2,9 +2,15 @@
 
 # Script to set the current monitors and start polybar
 
+LAPTOP="eDP1"
+
 killall -q polybar
 while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
 
-for m in $(xrandr --listmonitors | grep "+" | cut -d" " -f6); do
-    MONITOR=$m polybar --reload $1 &
-done
+if [ "$1" = "mobile" ]; then
+    polybar --reload laptop &
+elif [ "$1" = "docked" ]; then
+    polybar --reload main &
+    polybar --reload vertical &
+    polybar --reload laptop &
+fi

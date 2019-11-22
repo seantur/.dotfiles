@@ -31,9 +31,9 @@ Plugin 'sheerun/vim-polyglot'
 Plugin 'EinfachToll/DidYouMean'
 Plugin 'junegunn/fzf', {'dir':'~/.fzf','do':'/.install --all'}
 Plugin 'junegunn/fzf.vim'
-Plugin 'jceb/vim-orgmode'
 Plugin 'tpope/vim-surround'
 Plugin 'terryma/vim-multiple-cursors'
+Plugin 'fisadev/vim-isort'
 
 call vundle#end()		"required
 filetype plugin indent on	"required
@@ -175,4 +175,12 @@ map <right> <nop>
 "FZF/Rg
 nmap <Leader>f :GFiles<CR>
 nmap <Leader>F :Files<CR>
-nmap <Leader>g :Rg<CR>
+nmap <Leader>a :Ag<CR>
+nnoremap <silent> <C-p> :History<CR>
+
+"html indending
+autocmd Filetype html setlocal ts=2 sw=2 sts=2 expandtab
+au BufNewFile,BufRead *.html set filetype=html
+
+"isort
+let g:vim_isort_map = '<C-i>'
