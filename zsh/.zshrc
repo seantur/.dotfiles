@@ -30,13 +30,12 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 source $HOME/.aliases
-source $HOME/Dropbox/env
 # User configuration
 
 # You may need to manually set your language environment
 export LANG=en_US.UTF-8
 
-export EDITOR='vim'
+export EDITOR='nvim'
 export KEYTIMEOUT=1
 
 setopt nocorrectall;
@@ -50,3 +49,11 @@ source ~/.zshrc.local
 
 stty -ixon
 autoload -U +X bashcompinit && bashcompinit
+
+weather() {
+    curl "v2.wttr.in/$1"
+}
+
+weather-text() {
+    curl "wttr.in/$1?format="%c+%C+%t""
+}
