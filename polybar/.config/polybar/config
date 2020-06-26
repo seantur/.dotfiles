@@ -38,12 +38,12 @@ font-6 = FontAwesome5Brands:style=Regular:size=10,4
 
 [bar/main]
 inherit = bar/master
-monitor = DP1-2
+monitor = ${env:MAIN_MONITOR}
 monitor-strict = false
 
 modules-left = i3 memory temperature cpu filesystem
-modules-center = kernel package-update
-modules-right = backup volume wgstatus battery date
+modules-center = kernel package-update weather
+modules-right = spotify volume date
 
 [bar/vertical]
 inherit = bar/master
@@ -60,7 +60,7 @@ monitor-strict = true
 
 modules-left = i3 memory cpu
 modules-center = kernel
-modules-right = backup battery date
+modules-right = battery date
 
 # Modules
 
@@ -140,6 +140,7 @@ format-underline = ${colors.spotify}
 click-left = playerctl play-pause
 scroll-up = playerctl next
 scroll-down = playerctl previous
+if_exec = "pgrep spotify"
 
 [module/package-update]
 type = custom/script
@@ -155,8 +156,13 @@ interval = 3600
 
 [module/backup]
 type = custom/script
-exec = ~/.config/polybar/getbackuptime.sh
+exec = ~/.config/polybar/getbackuptime.py
 interval = 30
+
+[module/weather]
+type = custom/script
+exec = ~/.config/polybar/getweather.sh
+interval = 60
 
 [module/battery]
 type = internal/battery
