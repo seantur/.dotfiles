@@ -13,6 +13,9 @@ let mapleader = ","
 " vim-plug for plugins
 call plug#begin() "install plugins with :PlugInstall
 
+" go
+Plug 'fatih/vim-go', {'do': ':GoUpdateBinaries' }
+
 " navigation
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'scrooloose/nerdtree'
@@ -34,7 +37,7 @@ Plug 'airblade/vim-gitgutter'
 
 " python
 Plug 'Vimjas/vim-python-pep8-indent'
-Plug 'fisadev/vim-isort'
+" Plug 'fisadev/vim-isort'
 
 " file manipulation (requires fzf)
 Plug 'junegunn/fzf'
@@ -68,6 +71,7 @@ set wildmenu		"visual complete for command menu
 " tabs & spaces
 set tabstop=4		"number of visual spaces per TAB
 set softtabstop=4	"number of spaces in tab when editing
+set shiftwidth=4    "?
 set expandtab 		"tabs are spaces
 
 "cursor moves to the next displayed line
@@ -94,6 +98,9 @@ set hidden              "just hide buffers instead of closing the file
 set spelllang=en
 nnoremap <c-s> :setlocal spell! <ENTER>
 
+au BufNewFile,BufRead *.go
+    \ set tabstop=4
+
 " PEP8 settings
 au BufNewFile,BufRead *.py
     \ set tabstop=4 |
@@ -107,6 +114,7 @@ au BufNewFile,BufRead *.py
 
 " Automatically remove all trailing whitespace from python files
 autocmd BufWritePre *.py  %s/\s\+$//e
+autocmd FileType go setlocal shiftwidth=4 tabstop=4
 
 
 "" REMAPS
@@ -117,7 +125,7 @@ nmap <CR> o<Esc>
 
 "quicker save/quit
 nmap <Leader>w :w<CR>
-nmap <Leader>z :wq<CR>
+nmap <Leader>x :wq<CR>
 nmap <Leader>q :q!<CR>
 
 "redo
@@ -167,7 +175,7 @@ highlight ALEErrorSign ctermbg=red
 highlight ALEWarningSign ctermbg=gray
 let b:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
-\   'python': ['black', 'isort --atomic'],
+\   'python': ['black'],
 \}
 let g:ale_fix_on_save = 1
 
