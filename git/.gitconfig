@@ -5,13 +5,13 @@
     tool = vimdiff
 
 [diff]
-	tool = vimdiff
+    tool = vimdiff
 
 [http]
-	sslCAInfo = /etc/ssl/cert.pem
+    sslCAInfo = /etc/ssl/cert.pem
 
 [color]
-	ui = auto
+    ui = auto
 
 [pull]
     default = current
