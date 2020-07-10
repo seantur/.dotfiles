@@ -1,0 +1,15 @@
+function weather() {
+    curl "v2.wttr.in/$1"
+}
+
+function weather-text() {
+    curl "wttr.in/$1?format="%c+%C+%t""
+}
+
+function fasd_fzf_file () {
+    fasd -f | fzf --tac --reverse --height=25% | awk '{print $2}'
+}
+
+function fasd_fzf_dir () {
+    fasd -d | fzf --tac --reverse --height=25% | awk '{print $2}'
+}

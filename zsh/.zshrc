@@ -29,7 +29,6 @@ plugins=(
 )
 
 source $ZSH/oh-my-zsh.sh
-source $HOME/.aliases
 # User configuration
 
 # You may need to manually set your language environment
@@ -44,16 +43,12 @@ setopt correct
 # Wal Colors
 (cat ~/.cache/wal/sequences &)
 
+# Source dotfile specific files
+source $HOME/.aliases
+source $HOME/.zsh_functions
+
 # Source local ZSH configs in .zsh.local
-source ~/.zshrc.local
+source $HOME/.zshrc.local
 
 stty -ixon
 autoload -U +X bashcompinit && bashcompinit
-
-weather() {
-    curl "v2.wttr.in/$1"
-}
-
-weather-text() {
-    curl "wttr.in/$1?format="%c+%C+%t""
-}
