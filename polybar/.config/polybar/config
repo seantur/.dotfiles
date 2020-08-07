@@ -42,7 +42,7 @@ monitor = ${env:MAIN_MONITOR}
 monitor-strict = false
 
 modules-left = i3 memory temperature cpu filesystem
-modules-center = kernel package-update weather
+modules-center = kernel reboot package-update weather
 modules-right = spotify volume date
 
 [bar/vertical]
@@ -162,6 +162,11 @@ interval = 30
 [module/weather]
 type = custom/script
 exec = ~/.config/polybar/getweather.sh
+interval = 60
+
+[module/reboot]
+type = custom/script
+exec = ~/.config/polybar/need_reboot.sh
 interval = 60
 
 [module/battery]

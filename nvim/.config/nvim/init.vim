@@ -49,6 +49,7 @@ Plug 'junegunn/goyo.vim'
 " misc
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
+Plug 'vimwiki/vimwiki'
 
 call plug#end()
 
