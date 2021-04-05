@@ -202,11 +202,11 @@ bindsym F11 exec autorandr -c
 bindsym F12 exec /opt/bin/lock.sh
 
 bindsym $mod+Mod1+s exec --no-startup-id /usr/bin/slack
-bindsym $mod+Shift+w exec --no-startup-id wal -i /home/sean/Dropbox/backgrounds
+bindsym $mod+Shift+w exec --no-startup-id wal -i /home/sean/Documents/backgrounds
 bindsym $mod+Print exec --no-startup-id xfce4-screenshooter
 
 # Startup programs
-exec wal -i /home/sean/Dropbox/backgrounds
+exec wal -i /home/sean/Documents/backgrounds
 exec --no-startup-id dropbox
 
 # Workspace assignments
@@ -217,8 +217,8 @@ for_window [class="feh"] floating enable
 
 bindsym $mod+m move workspace to output right
 
-workspace 1 output DP1-2
-workspace 2 output DP2-1
+workspace 1 output HDMI1
+workspace 2 output HDMI1
 workspace 3 output eDP1
 workspace 4 output eDP1
 workspace 5 output HDMI1

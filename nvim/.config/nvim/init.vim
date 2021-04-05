@@ -1,3 +1,8 @@
+" Make sure vim-plug is installed:
+" sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+" https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+
+
 filetype on
 
 " Optional dependencies:
@@ -207,3 +212,18 @@ let g:loaded_matchparen=1
 
 "isort
 let g:vim_isort_map = '<C-i>'
+
+
+"vimwiki
+set nocompatible
+filetype plugin on
+syntax on
+let g:vimwiki_list = [{'path': '~/drop/vimwiki/omscs-notes', 'syntax': 'markdown', 'ext': '.md', 'css_name': 'style.css'}, {'path': '~/Documents/vimwiki/tasks/', 'syntax': 'markdown', 'ext': '.md'}]
+let g:vimwiki_global_ext = 0
+let g:vimwiki_markdown_link_ext=1
+
+
+let g:better_whitespace_enabled=1
+let g:strip_whitespace_on_save=1
+
+set nomodeline
