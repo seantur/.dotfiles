@@ -37,7 +37,7 @@ Plug 'airblade/vim-gitgutter'
 
 " python
 Plug 'Vimjas/vim-python-pep8-indent'
-" Plug 'fisadev/vim-isort'
+Plug 'fisadev/vim-isort'
 
 " file manipulation (requires fzf)
 Plug 'junegunn/fzf'
@@ -114,7 +114,7 @@ au BufNewFile,BufRead *.py
     \ set wrap
 
 " Automatically remove all trailing whitespace from python files
-autocmd BufWritePre *.py  %s/\s\+$//e
+" autocmd BufWritePre *.py  %s/\s\+$//e
 autocmd FileType go setlocal shiftwidth=4 tabstop=4
 
 
@@ -175,8 +175,8 @@ highlight clear ALEError
 highlight ALEErrorSign ctermbg=red
 highlight ALEWarningSign ctermbg=gray
 let b:ale_fixers = {
-\   '*': ['remove_trailing_lines', 'trim_whitespace'],
 \   'python': ['black'],
+\   '*': ['remove_trailing_lines', 'trim_whitespace'],
 \}
 let g:ale_fix_on_save = 1
 
@@ -207,3 +207,16 @@ let g:loaded_matchparen=1
 
 "isort
 let g:vim_isort_map = '<C-i>'
+
+" vimwiki
+set nocompatible
+filetype plugin on
+syntax on
+
+if filereadable(expand("~/.config/nvim/vimwiki.vim"))
+    source ~/.config/nvim/vimwiki.vim
+endif
+
+let g:python_highlight_all = 1
+let g:strip_whitespace_on_save = 1
+let g:better_whitespace_enabled = 1

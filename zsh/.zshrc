@@ -26,6 +26,7 @@ COMPLETION_WAITING_DOTS="true"
 # Plugins
 plugins=(
   git
+  golang
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -39,9 +40,6 @@ export KEYTIMEOUT=1
 
 setopt nocorrectall;
 setopt correct
-
-# Wal Colors
-(cat ~/.cache/wal/sequences &)
 
 # Source dotfile specific files
 source $HOME/.aliases
