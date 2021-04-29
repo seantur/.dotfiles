@@ -1,3 +1,7 @@
 #!/usr/bin/env bash
 
-echo $(curl --silent "wttr.in/04038?format="%C+%t"")
+WEATHER=$(curl --silent "wttr.in/04038?format="%C+%t"")
+
+if [[ "$WEATHER" != *"Unknown"* ]]; then
+    echo "$WEATHER"
+fi
