@@ -21,8 +21,24 @@ export LANG=en_US.UTF-8
 export EDITOR='nvim'
 export KEYTIMEOUT=1
 
+# enable autosuggest
+bindkey '       ' autosuggest-accept
+
 # make zsh behave a little more like bash (ctrl-r, ctrl-A, ctrl-K)
 bindkey -e
+# enable ctrl right/left arrow
+bindkey "^[[1;5C" forward-word
+bindkey "^[[1;5D" backward-word
+
+# Enable up/down arrow to search based on what's been typed
+# https://superuser.com/a/585004
+autoload -U up-line-or-beginning-search
+autoload -U down-line-or-beginning-search
+zle -N up-line-or-beginning-search
+zle -N down-line-or-beginning-search
+bindkey "^[[A" up-line-or-beginning-search # Up
+bindkey "^[[B" down-line-or-beginning-search # Down
+
 
 setopt nocorrectall;
 setopt correct

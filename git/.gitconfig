@@ -7,9 +7,6 @@
 [diff]
     tool = vimdiff
 
-[http]
-    sslCAInfo = /etc/ssl/cert.pem
-
 [color]
     ui = auto
 
