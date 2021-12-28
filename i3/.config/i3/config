@@ -189,12 +189,10 @@ gaps horizontal 10
 gaps vertical 10
 
 # Function bindings
-bindsym F1 exec --no-startup-id pactl set-sink-mute 0 toggle
-bindsym F2 exec --no-startup-id pactl set-sink-volume 0 -5%
-bindsym F3 exec --no-startup-id pactl set-sink-volume 0 +5%
-bindsym F4 exec playerctl previous
-bindsym F5 exec playerctl play-pause
-bindsym F6 exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioNext exec playerctl next
+
 # Applications
 bindsym F7 exec --no-startup-id /usr/bin/spotify
 bindsym F8 exec --no-startup-id /usr/bin/firefox
@@ -207,7 +205,6 @@ bindsym $mod+Print exec --no-startup-id xfce4-screenshooter
 
 # Startup programs
 exec wal -i /home/sean/Documents/backgrounds
-exec --no-startup-id dropbox
 
 # Workspace assignments
 for_window [class="Spotify"] move container to workspace 2
@@ -228,67 +225,3 @@ smart_borders no_gaps
 
 set $mod Mod4
 set $mod2 Mod1
-
-mode "mouse" {
-
-	# set your three speeds here
-
-	set $slow 1
-	set $quick 10
-	set $fast 50
-
-	# Mouse movement (slow/fine-tuned) -- vim keybindings
-
-	bindsym h exec xdotool mousemove_relative -- -$slow 0
-	bindsym j exec xdotool mousemove_relative 0 $slow
-	bindsym k exec xdotool mousemove_relative -- 0 -$slow
-	bindsym l exec xdotool mousemove_relative $slow 0
-
-	# Mouse movement (quicker) -- vim keybindings
-
-	bindsym Shift+h exec xdotool mousemove_relative -- -$quick 0
-	bindsym Shift+j exec xdotool mousemove_relative 0 $quick
-	bindsym Shift+k exec xdotool mousemove_relative -- 0 -$quick
-	bindsym Shift+l exec xdotool mousemove_relative $quick 0
-
-	# Mouse movement (fast) -- vim keybindings
-
-	bindsym Shift+$mod+h exec xdotool mousemove_relative -- -$fast 0
-	bindsym Shift+$mod+j exec xdotool mousemove_relative 0 $fast
-	bindsym Shift+$mod+k exec xdotool mousemove_relative -- 0 -$fast
-	bindsym Shift+$mod+l exec xdotool mousemove_relative $fast 0
-
-	# Left Click
-	bindsym f exec xdotool click 1
-
-	# Middle Click
-	bindsym d exec xdotool click 2
-
-	# Right Click
-	bindsym s exec xdotool click 3
-
-	# Left Click-and-drag
-	bindsym Shift+f exec xdotool mousedown 1
-
-	# Middle Click-and-drag
-	bindsym Shift+d exec xdotool mousedown 2
-
-	# Right Click-and-drag
-	bindsym Shift+s exec xdotool mousedown 3
-
-	# Left Drag release
-	bindsym $mod2+f exec xdotool mouseup 1
-
-	# Middle Drag release
-	bindsym $mod2+d exec xdotool mouseup 2
-
-	# Right Drag release
-	bindsym $mod2+s exec xdotool mouseup 3
-
-
-	# return to normal keybindings -- IMPORTANT!!
-
-	bindsym Escape mode "default"
-}
-
-bindsym $mod+Shift+m mode "mouse"

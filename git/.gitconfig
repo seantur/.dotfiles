@@ -31,3 +31,5 @@
 
 [include]
     path = ./.git.identity
+[init]
+	defaultBranch = main

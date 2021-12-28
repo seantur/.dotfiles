@@ -31,7 +31,7 @@ foreground = ${colors.foreground}
 font-0 = Noto Sans Mono:style=Regular
 font-1 = FontAwesome5Free:size=12
 font-2 = InConsolata-Regular:sie=Regular
-font-3 = font\-logos:style=logos
+font-3 = font\\-logos:style=logos
 font-4 = Symbola:style=Regular
 font-5 = FontAwesome5Free:style=Solid:size=10,4
 font-6 = FontAwesome5Brands:style=Regular:size=10,4
@@ -42,7 +42,7 @@ monitor = ${env:MAIN_MONITOR}
 monitor-strict = false
 
 modules-left = i3 memory temperature cpu filesystem
-modules-center = kernel reboot package-update weather
+modules-center = kernel package-update weather
 modules-right = spotify volume date
 
 [bar/vertical]

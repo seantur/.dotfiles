@@ -42,7 +42,7 @@ Plug 'airblade/vim-gitgutter'
 
 " python
 Plug 'Vimjas/vim-python-pep8-indent'
-Plug 'fisadev/vim-isort'
+" Plug 'fisadev/vim-isort'
 
 " file manipulation (requires fzf)
 Plug 'junegunn/fzf'
@@ -55,6 +55,8 @@ Plug 'junegunn/goyo.vim'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'vimwiki/vimwiki'
+Plug 'lambdalisue/suda.vim'
+Plug 'kristijanhusak/orgmode.nvim'
 
 call plug#end()
 
