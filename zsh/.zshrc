@@ -1,17 +1,7 @@
 # User PATH definition
 export PATH="$PATH:$HOME/.local/bin:/opt/bin"
 
-#Path to your oh-my-zsh installation.
-if [ -d "/usr/share/oh-my-zsh" ]; then
-    export ZSH=/usr/share/oh-my-zsh
-else
-    export ZSH=$HOME"/.oh-my-zsh"
-fi
-
 export TERM="xterm-256color"
-
-# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="gentoo"
 
 # Uncomment the following line to use hyphen-insensitive completion. Case
 # sensitive completion must be off. _ and - will be interchangeable.
@@ -23,30 +13,59 @@ ENABLE_CORRECTION="true"
 # Uncomment the following line to display red dots whilst waiting for completion.
 COMPLETION_WAITING_DOTS="true"
 
-# Plugins
-plugins=(
-  git
-  golang
-)
-
-source $ZSH/oh-my-zsh.sh
 # User configuration
-
+#
 # You may need to manually set your language environment
 export LANG=en_US.UTF-8
 
 export EDITOR='nvim'
 export KEYTIMEOUT=1
 
+# make zsh behave a little more like bash (ctrl-r, ctrl-A, ctrl-K)
+bindkey -e
+
 setopt nocorrectall;
 setopt correct
+setopt prompt_subst
+setopt auto_cd
 
-# Source dotfile specific files
 source $HOME/.aliases
 source $HOME/.zsh_functions
 
-# Source local ZSH configs in .zsh.local
-source $HOME/.zshrc.local
+if [ -f $HOME/.zshrc.local ]; then
+    source $HOME/.zshrc.local
+fi
+
+# Stolen from: https://github.com/ohmyzsh/ohmyzsh/blob/master/themes/gentoo.zsh-theme
+# Inlined to prevent the need of oh-my-zsh
+autoload -Uz colors && colors
+
+autoload -Uz vcs_info
+zstyle ':vcs_info:*' check-for-changes true
+zstyle ':vcs_info:*' unstagedstr '%F{red}*'   # display this when there are unstaged changes
+zstyle ':vcs_info:*' stagedstr '%F{yellow}+'  # display this when there are staged changes
+zstyle ':vcs_info:*' actionformats '%F{5}(%F{2}%b%F{3}|%F{1}%a%c%u%m%F{5})%f '
+zstyle ':vcs_info:*' formats '%F{5}(%F{2}%b%c%u%m%F{5})%f '
+zstyle ':vcs_info:(sv[nk]|bzr):*' branchformat '%b%F{1}:%F{3}%r'
+zstyle ':vcs_info:*' enable git cvs svn
+zstyle ':vcs_info:git*+set-message:*' hooks untracked-git
+
++vi-untracked-git() {
+  if command git status --porcelain 2>/dev/null | command grep -q '??'; then
+    hook_com[misc]='%F{red}?'
+  else
+    hook_com[misc]=''
+  fi
+}
+
+gentoo_precmd() {
+  vcs_info
+}
+
+autoload -U add-zsh-hook
+add-zsh-hook precmd gentoo_precmd
+
+PROMPT='%(!.%B%F{red}.%B%F{green}%n@)%m %F{blue}%(!.%1~.%~) ${vcs_info_msg_0_}%F{blue}%(!.#.$)%k%b%f '
 
 stty -ixon
 autoload -U +X bashcompinit && bashcompinit
