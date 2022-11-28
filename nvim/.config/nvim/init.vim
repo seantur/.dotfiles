@@ -7,8 +7,7 @@ filetype on
 
 " Optional dependencies:
 " fzf (with a ~/.fzf folder).   used in fzf.vim
-" ag (silversearcher).          used in fzf.vim
-" pywal                         used in wal.vim
+" rg (ripgrep).                 used in fzf.vim
 " tmux                          used in vim-tmux-navigator
 
 let mapleader = ","
@@ -34,7 +33,7 @@ Plug 'sheerun/vim-polyglot'
 " UI
 Plug 'itchyny/lightline.vim'
 Plug 'maximbaz/lightline-ale'
-Plug 'dylanaraps/wal.vim'
+Plug 'arcticicestudio/nord-vim'
 
 " git
 Plug 'tpope/vim-fugitive'
@@ -65,11 +64,7 @@ call plug#end()
 
 " color
 set background=dark
-try
-	colorscheme wal
-catch
-	colorscheme industry
-endtry
+colorscheme nord
 
 " UI config
 set relativenumber		    "show line numbers
@@ -93,11 +88,6 @@ set incsearch   "search as characters are entered
 set hlsearch    "highlight matches
 set smartcase   "ignore case in a search until there is capitalization
 set gdefault    "s///g is implied
-
-" folding
-set foldenable          "enable folding
-set foldlevelstart=10   "open most folds by default
-set foldmethod=indent   "fold based on indent levels
 
 " buffers
 set hidden              "just hide buffers instead of closing the file
@@ -151,13 +141,13 @@ map <down> <nop>
 map <left> <nop>
 map <right> <nop>
 
-"FZF/ag
+"FZF/rg
 "search files
 nmap <Leader>f :GFiles<CR>
 "search git files
 nmap <Leader>F :Files<CR>
-"use silversearcher (requires ag)
-nmap <Leader>a :Ag<CR>
+"use ripgrep (requires rg)
+nmap <Leader>a :Rg<CR>
 nnoremap <silent> <C-p> :History<CR>
 
 "" PLUG CONFIGS
@@ -165,11 +155,7 @@ nnoremap <silent> <C-p> :History<CR>
 " lightline config
 set laststatus=2        "always display the last status
 set noshowmode          "don't put the mode at the bottom (lightline displays it)
-try
-        let g:lightline = { 'colorscheme': 'wal' }
-catch
-        let g:lightline = { 'colorscheme': 'industry' }
-endtry
+let g:lightline = { 'colorscheme': 'nord' }
 
 " gitgutter configs
 let g:gitgutter_reatime = 0
@@ -185,7 +171,7 @@ let b:ale_fixers = {
 \   'python': ['black'],
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
 \}
-let g:ale_fix_on_save = 1
+" let g:ale_fix_on_save = 1
 
 " ALE / Lightline
 let g:lightline = {}
