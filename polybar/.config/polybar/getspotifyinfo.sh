@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Script to output the artist / title of the current spotify song
 
-OUTPUT=$(spotify-now -i "%artist - %title" -e " ")
+OUTPUT=$(/opt/bin/spotify-now -i "%artist - %title" -e " ")
 SIZE=${#OUTPUT}
 
 if (( $SIZE > 40 )); then
@@ -11,4 +11,3 @@ elif (( $SIZE > 2 )); then
 else
    echo ""
 fi
-
