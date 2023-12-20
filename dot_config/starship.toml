@@ -1,0 +1,24 @@
+[username]
+format = '[$user]($style)'
+show_always = true
+
+[hostname]
+ssh_only = false
+format = '[$ssh_symbol](bold blue)[\[$hostname\]](bold red) '
+disabled = false
+
+[package]
+disabled = true
+
+[directory]
+truncation_length = 8
+truncation_symbol = '.../'
+
+[git_metrics]
+disabled = false
+
+[python]
+disabled = true
+
+[cmd_duration]
+disabled = true

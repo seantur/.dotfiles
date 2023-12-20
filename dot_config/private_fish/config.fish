@@ -4,5 +4,6 @@ end
 
 fish_add_path -p $HOME/.local/bin /opt/bin $HOME/go/bin
 
-# https://direnv.net/docs/hook.html
-direnv hook fish | source
+starship init fish | source
+source /opt/asdf-vm/asdf.fish
+direnv hook fish | source # https://direnv.net/docs/hook.html
