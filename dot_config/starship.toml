@@ -1,10 +1,10 @@
 [username]
-format = '[$user]($style)'
+format = '[$user]($style) '
 show_always = true
 
 [hostname]
 ssh_only = false
-format = '[$ssh_symbol](bold blue)[\[$hostname\]](bold red) '
+format = '[$ssh_symbol](bold blue)[\[$hostname\]](green) '
 disabled = false
 
 [package]
@@ -18,7 +18,7 @@ truncation_symbol = '.../'
 disabled = false
 
 [python]
-disabled = true
+disabled = false
 
 [cmd_duration]
 disabled = true
