@@ -6,7 +6,7 @@ fish_add_path -p $HOME/.local/bin /opt/bin $HOME/go/bin
 set -x EDITOR nvim
 
 starship init fish | source
-{{- if stat (joinPath .chezmoi.homeDir ".asdf" "bin" "asdf") }}
+{{- if stat (joinPath .chezmoi.homeDir ".asdf") }}
 source $HOME/.asdf/asdf.fish
 {{- else }}
 source /opt/asdf-vm/asdf.fish
