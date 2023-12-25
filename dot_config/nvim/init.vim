@@ -23,7 +23,7 @@ Plug 'christoomey/vim-tmux-navigator'  "Allows for seamless navigation between v
 Plug 'EinfachToll/DidYouMean'  "Asks for the right file to open
 
 " linting
-Plug 'dense-analysis/ale'  "Provides asychronous linting
+Plug 'dense-analysis/ale'  "Provides asynchronous linting
 Plug 'ntpeters/vim-better-whitespace'  "Highlights all trailing whitespace
 Plug 'sheerun/vim-polyglot'  "A collection of language packs
 
@@ -134,6 +134,12 @@ let g:airline_extensions = ['ale', 'tabline']
 let g:ale_linters = {
     \ 'python': ['ruff'],
     \}
+
+let g:ale_fixers = {
+    \ 'python': ['ruff_format'],
+    \}
+
+let g:ale_fix_on_save = 1
 
 " vim better whitspace
 let g:python_highlight_all = 1
