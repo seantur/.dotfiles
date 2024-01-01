@@ -18,6 +18,9 @@ let mapleader = ","
 " vim-plug for plugins
 call plug#begin() "install plugins with :PlugInstall
 
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+inoremap <expr> <cr> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
+
 " navigation
 Plug 'christoomey/vim-tmux-navigator'  "Allows for seamless navigation between vim and tmux splits
 Plug 'EinfachToll/DidYouMean'  "Asks for the right file to open
