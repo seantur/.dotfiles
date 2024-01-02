@@ -68,11 +68,7 @@ persistent_logging = false
 render_timer = false
 
 [font]
-{{- if .ultrawide }}
-size = 22.0
-{{- else }}
-size = 12.0
-{{- end }}
+size = {{ .font_size }}
 
 [font.glyph_offset]
 x = 0
