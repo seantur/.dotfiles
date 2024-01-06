@@ -11,6 +11,7 @@
 #
 exec_always $HOME/.config/polybar/launch.sh
 exec_always /usr/bin/dunst
+exec_always feh --bg-fill $(find $HOME/Documents/backgrounds/horizontal -type f | shuf -n 1) --bg-fill $(find $HOME/Documents/backgrounds/vertical -type f | shuf -n 1)
 
 set $mod Mod4
 
@@ -199,7 +200,6 @@ bindsym F8 exec --no-startup-id /usr/bin/firefox
 bindsym F11 exec autorandr -c
 
 # Startup programs
-exec wal -i /home/sean/Documents/backgrounds
 
 # Workspace assignments
 for_window [class="feh"] floating enable
