@@ -1,6 +1,6 @@
 [core]
     editor = nvim
-	excludesfile = /Users/seanturner/.gitignore
+	excludesfile = ~/.gitignore
 
 [color]
     ui = auto
@@ -20,7 +20,7 @@
     oops = reset HEAD~
 
 [include]
-    path = ./.git.identity
+    path = ~/.git.identity
 
 [init]
 	defaultBranch = main
