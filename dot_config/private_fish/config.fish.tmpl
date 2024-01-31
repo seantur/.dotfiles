@@ -6,11 +6,13 @@ fish_add_path -p $HOME/.local/bin /opt/bin $HOME/go/bin $HOME/.cargo/bin
 set -x EDITOR nvim
 
 starship init fish | source
+
 {{- if stat (joinPath .chezmoi.homeDir ".asdf" "asdf.fish") }}
 source $HOME/.asdf/asdf.fish
 {{- else if and (eq .chezmoi.os "darwin") (lookPath "brew") }}
-source $(brew --prefix asdf)/asdf.fish
+source $(gfind $(brew --prefix asdf)/ -name asdf.fish -print -quit)
 {{- end }}
+
 direnv hook fish | source # https://direnv.net/docs/hook.html
 
 alias vi nvim
