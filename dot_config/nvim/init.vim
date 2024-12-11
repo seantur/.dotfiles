@@ -35,13 +35,16 @@ Plug 'vim-airline/vim-airline'  "Lean % Mean status / tabline
 Plug 'vim-airline/vim-airline-themes'
 Plug 'arcticicestudio/nord-vim'  "Nord theme
 
-" git
+" git / jj
 Plug 'tpope/vim-fugitive'  "premier Vim plugin for Git
 Plug 'airblade/vim-gitgutter'  "shows a git diff in the sign column
+Plug 'avm99963/vim-jjdescription' " adds sensible highlighting and sensible options for .jjdescription files
+
 
 " writing
 Plug 'junegunn/goyo.vim'  "Distraction free writing
 Plug 'lervag/vimtex'  " filetype and syntax plugin for LaTeX files
+Plug 'kaarmu/typst.vim'
 
 " telescope
 Plug 'nvim-lua/plenary.nvim'  "lua function - required for telescope
@@ -71,7 +74,7 @@ set softtabstop=4	"number of spaces in tab when editing
 set shiftwidth=4    "?
 set expandtab 		"tabs are spaces
 
-"cursor moves to the next displayed line
+" cursor moves to the next displayed line
 noremap <buffer> <silent> k gk
 noremap <buffer> <silent> j gj
 noremap <buffer> <silent> 0 g0
@@ -99,7 +102,7 @@ nnoremap <c-s> :setlocal spell! <ENTER>
 let g:loaded_matchparen=1
 
 " turn on spell check for markdown files
-autocmd FileType latex,tex,markdown,md setlocal spell
+autocmd FileType latex,tex,markdown,md,typ setlocal spell
 
 
 "" REMAPS
@@ -135,7 +138,7 @@ let g:airline_extensions = ['ale', 'tabline']
 
 " ale
 let g:ale_linters = {
-    \ 'python': ['ruff'],
+    \ 'python': ['ruff_check'],
     \}
 
 let g:ale_fixers = {

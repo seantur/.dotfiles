@@ -18,7 +18,7 @@ truncation_symbol = '.../'
 disabled = false
 
 [python]
-disabled = false
+disabled = true
 
 [cmd_duration]
 disabled = true
@@ -28,3 +28,36 @@ disabled = true
 
 [gcloud]
 disabled = true
+
+[docker_context]
+disabled = true
+
+[typst]
+disabled = true
+
+# https://github.com/martinvonz/jj/wiki/Starship
+# Using my default shell (fish) WRECKED my timings (~500ms)
+[custom.jj]
+command = '''
+jj log -r@ -n1 --ignore-working-copy --no-graph --color always  -T '
+  separate(" ",
+    bookmarks.map(|x| if(
+        x.name().substr(0, 10).starts_with(x.name()),
+        x.name().substr(0, 10),
+        x.name().substr(0, 9) ++ "…")
+      ).join(" "),
+    if(
+       description.first_line().substr(0, 24).starts_with(description.first_line()),
+       description.first_line().substr(0, 24),
+       description.first_line().substr(0, 23) ++ "…"
+    ),
+    if(conflict, "conflict"),
+    if(divergent, "divergent"),
+    if(hidden, "hidden"),
+    change_id.shortest(),
+  )
+'
+'''
+when = "jj root"
+symbol = "[➜](bold green) "
+shell = "/bin/bash"

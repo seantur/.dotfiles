@@ -18,6 +18,8 @@
     clean-local = "!f() { git remote prune origin && git branch -vv | grep 'origin/.*: gone' | awk '{print $1}' | xargs git branch -D; };f"
     st = status
     oops = reset HEAD~
+    jj = "!jj git init --git-repo=."
+    setup = "!git init && git jj"
 
 [include]
     path = ~/.git.identity

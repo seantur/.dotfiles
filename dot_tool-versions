@@ -1,10 +1,12 @@
 python system
-sops 3.8.1
-age 1.1.1
-just 1.23.0
+sops 3.9.2
+age 1.2.0
+just 1.38.0
 zola 0.18.0
 direnv 2.33.0
 neovim 0.9.4
 fzf 0.44.1
 chezmoi 2.42.3
-ripgrep 14.0.3
+ripgrep 14.1.1
+watchexec 1.25.1
+uv 0.5.8

@@ -1,0 +1,21 @@
+[git]
+auto-local-bookmark = true
+push-bookmark-prefix = "seantur/push-"
+
+[user]
+name = "Sean Turner"
+
+[revsets]
+log = '@ | ancestors(trunk(), 2) | trunk() & remote_bookmarks(main) | remote_bookmarks(main)..@'
+
+[aliases]
+# auto branch naming
+p = ['git', 'push', '-c', '@-']
+# sync w/ remotes
+sync = ['git', 'fetch', '--all-remotes']
+# rebase off root() but skip empty commits that come from rebasing a squash
+evolve = ['rebase', '--skip-empty', '-d', 'root()']
+# Extra-log: everything
+xl = ['log', '-r', '..']
+# Evo-log with summary
+el = ['evolog', '-s']
